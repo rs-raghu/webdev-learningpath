@@ -1,1 +1,57 @@
+📂 Navigation & Directory Commands
+pwd – Show current directory path
+ls – List files and folders
+ls -l – List in long format (permissions, owner, size, date)
+ls -a – List all files including hidden ones
+cd <dir> – Change to specified directory
+cd .. – Move up one directory
+cd / – Move to root directory
+cd ~ – Move to home directory
 
+📄 File & Folder Management
+touch <file> – Create a new empty file
+mkdir <dir> – Create a new directory
+rm <file> – Remove a file
+rm -r <dir> – Remove a directory and its contents
+cp <src> <dest> – Copy a file
+cp -r <src> <dest> – Copy a directory and its contents
+mv <src> <dest> – Move or rename a file/directory
+cat <file> – Display file content
+nano <file> – Open file in nano editor
+less <file> – View file content with scrolling
+
+🖥️ System Info & Disk Usage
+whoami – Show current logged-in user
+uname -a – Show system info (OS, kernel, etc.)
+df -h – Show disk space usage in human-readable form
+du -sh <dir> – Show size of a directory
+date – Show current date and time
+uptime – Show system uptime and load
+free -h – Show memory usage
+
+🔍 Search & Find
+find <dir> -name <filename> – Find files by name
+grep "<text>" <file> – Search for text inside a file
+grep -r "<text>" <dir> – Search text recursively in a directory
+
+🔑 Permissions
+chmod <mode> <file> – Change file permissions
+chown <user>:<group> <file> – Change file owner and group
+ls -l – Show permissions in directory listing
+
+⚙️ Process Management
+ps – List running processes
+ps aux – List all processes with details
+top – Show real-time process usage
+kill <PID> – Kill a process by ID
+kill -9 <PID> – Force kill a process
+
+🛠️ Miscellaneous
+history – Show command history
+clear – Clear terminal screen
+man <command> – Show manual/help for command
+echo <text> – Print text in terminal
+tar -czvf <file.tar.gz> <dir> – Compress directory into .tar.gz file
+tar -xzvf <file.tar.gz> – Extract .tar.gz file
+zip -r <file.zip> <dir> – Create a zip file
+unzip <file.zip> – Extract a zip file
