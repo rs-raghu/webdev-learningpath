@@ -1,0 +1,39 @@
+/* 1. Named Colors
+Reds: red, crimson, firebrick, indianred, darkred, lightcoral, salmon.
+Oranges: orange, coral, darkorange, lightsalmon, tomato, peachpuff.
+Yellows: yellow, gold, khaki, lemonchiffon, papayawhip, lightyellow.
+Greens: green, springgreen, lime, olive, forestgreen, seagreen, yellowgreen.
+Blues: blue, dodgerblue, steelblue, navy, royalblue, cornflowerblue.
+Purples: purple, magenta, fuchsia, violet, plum, orchid, mediumslateblue.
+Pinks: pink, deeppink, hotpink, palevioletred, lightpink.
+Grays/Black/White: white, gray, slategray, lightslategray, black, whitesmoke.*/
+
+color: fuchsia;
+background-color: skyblue;
+
+
+/* 2. Other Color Formats
+Hexadecimal	#FF5733	#RRGGBB or short #RGB
+Hex Transparency	#FF573380	#RRGGBBAA for opacity (AA 00–FF)
+RGB	rgb(255, 0, 0)	Red, green, blue channels
+RGBA	rgba(255, 0, 0, 0.5)	RGB + alpha for transparency
+HSL	hsl(120, 100%, 50%)	Hue, saturation, lightness
+HSLA	hsla(120, 100%, 50%, 0.3)	HSL + alpha for transparency
+Currentcolor	border-color: currentcolor;	Uses element’s own color property
+Transparent	background: transparent;	Fully transparent (same as rgba(0,0,0,0))
+Example CSS: */
+
+.background-hex { background-color: #FF5733; }
+.text-rgb { color: rgb(255, 0, 0); }
+.transparent-bg { background-color: transparent; }
+.border-current { border: 2px solid currentcolor; }
+
+/* 3. CSS Color Keywords
+transparent: Makes element truly invisible (rgba(0,0,0,0)).
+currentcolor: Reference to the current value of the CSS color property.
+inherit: Takes color value from parent element. */
+
+element {
+  color: blue;
+  border: 1px solid currentcolor;
+}
