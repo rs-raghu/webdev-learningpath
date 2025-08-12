@@ -8,9 +8,9 @@ Purples: purple, magenta, fuchsia, violet, plum, orchid, mediumslateblue.
 Pinks: pink, deeppink, hotpink, palevioletred, lightpink.
 Grays/Black/White: white, gray, slategray, lightslategray, black, whitesmoke.*/
 
-color: fuchsia;
+* {color: fuchsia;
 background-color: skyblue;
-
+}
 
 /* 2. Other Color Formats
 Hexadecimal	#FF5733	#RRGGBB or short #RGB
