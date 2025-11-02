@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>JavaScript script Example</title>
+    <!-- External JavaScript loaded after parsing -->
+    <script src="example.js" defer></script>
+    <script src="another-example.js" defer></script>
+</head>
+<body>
+    <h1>Understanding the script Tag</h1>
+    <!-- Inline JavaScript: Alert executed immediately -->
+    <script>
+        alert("Inline script executed");
+    </script>
+
+    <div id="demo"></div>
+
+    <!-- Script to update DOM element, placed after element -->
+    <script>
+        document.getElementById("demo").innerText = "JavaScript loaded at the end!";
+    </script>
+</body>
+</html>
