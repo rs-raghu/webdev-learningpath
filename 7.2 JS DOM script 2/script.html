@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DOM Access and Manipulation Example</title>
+  <style>
+    .highlight {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="header">Hello World!</h1>
+  <p class="text">Paragraph 1</p>
+  <p class="text">Paragraph 2</p>
+  <div id="container">
+    <span>Child 1</span>
+    <span>Child 2</span>
+  </div>
+  <button id="addBtn">Add Element</button>
+  <button id="removeBtn">Remove Last Child</button>
+
+  <script>
+    // Access the root of the DOM
+    const root = document;
+
+    // Select element with CSS selector
+    const headerQuery = root.querySelector('#header');
+    headerQuery.style.color = 'blue';
+
+    // Access element by ID (single element)
+    const headerById = root.getElementById('header');
+    headerById.innerHTML += ' - Modified by getElementById';
+
+    // Access elements by class name (returns array-like HTMLCollection)
+    const paragraphs = root.getElementsByClassName('text');
+    paragraphs[0].style.fontWeight = 'bold';
+
+    // Access elements by tag name (returns array-like HTMLCollection)
+    const divs = root.getElementsByTagName('div');
+    divs[0].style.border = '1px solid black';
+
+    // Create a new element and add it to the container div
+    const newElement = root.createElement('p');
+    newElement.innerHTML = 'New paragraph added!';
+    divs[0].appendChild(newElement);
+
+    // Add interactivity: onclick event to add more elements
+    document.getElementById('addBtn').onclick = () => {
+      const extraElement = root.createElement('p');
+      extraElement.innerHTML = 'Another new paragraph!';
+      divs[0].appendChild(extraElement);
+    };
+
+    // Remove last child element on button click
+    document.getElementById('removeBtn').onclick = () => {
+      const container = root.getElementById('container');
+      if (container.children.length > 0) {
+        container.removeChild(container.lastChild);
+      }
+    };
+
+    // Access children and parent nodes
+    const containerChildren = divs[0].children; // HTMLCollection of children
+    console.log('Children of container:', containerChildren);
+
+    const parentOfHeader = headerById.parentNode;
+    console.log('Parent of header:', parentOfHeader.tagName);
+  </script>
+</body>
+</html>
