@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Event Listener Example</title>
+  <style>
+    #btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <button id="btn">Click Me</button>
+  <p id="output"></p>
+
+  <script>
+    const button = document.getElementById('btn');
+    const output = document.getElementById('output');
+
+    // Event handler function
+    function handleClick(event) {
+      // Use event object properties: target, type, timeStamp
+      output.innerText = 
+        `Event type: ${event.type}\n` + 
+        `Target element: ${event.target.tagName}\n` + 
+        `Event time stamp: ${event.timeStamp.toFixed(2)}`;
+    }
+
+    // Register event using addEventListener (first handler)
+    button.addEventListener('click', handleClick);
+
+    // Register a second event handler for same event
+    button.addEventListener('click', () => {
+      console.log('Second handler executed!');
+    });
+
+    // Register event handler using onevent property (overwrites previous handler)
+    // Uncomment below to see difference
+    // button.onclick = function(event) {
+    //   output.innerText = 'Handled by onclick property';
+    // };
+
+    // Remove the first event handler after 10 seconds
+    setTimeout(() => {
+      button.removeEventListener('click', handleClick);
+      output.innerText += '\nFirst event handler removed (handleClick)';
+    }, 10000);
+  </script>
+</body>
+</html>
