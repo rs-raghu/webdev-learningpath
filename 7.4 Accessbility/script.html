@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Accessibility Example with Semantic HTML and ARIA</title>
+</head>
+<body>
+
+  <!-- Semantic header element -->
+  <header>
+    <h1>Welcome to Our Website</h1>
+    <nav role="navigation" aria-label="Main navigation">
+      <ul>
+        <li><a href="#home" aria-current="page">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Use role="presentation" to mark decorative elements -->
+  <div role="presentation" style="background-color: lightgray; padding: 10px;">
+    Decorative background container - ignored by screen readers
+  </div>
+
+  <!-- Section with aria-label -->
+  <section aria-label="Featured articles">
+    <article>
+      <h2>How to Improve Accessibility</h2>
+      <p>Using semantic HTML and ARIA roles improves usability for all.</p>
+      <!-- Image with meaningful alt text -->
+      <img src="accessibility.png" alt="Person using a screen reader on a laptop" />
+    </article>
+  </section>
+
+  <!-- Footer as semantic element -->
+  <footer>
+    <p>© 2025 Accessibility First, Inc.</p>
+  </footer>
+
+</body>
+</html>

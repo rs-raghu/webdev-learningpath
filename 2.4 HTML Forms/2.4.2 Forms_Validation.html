@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Form Validation Example</title>
+  <style>
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <h2>Registration Form</h2>
+  <form id="regForm" novalidate>
+    <label for="username">Username (only letters and numbers, 4-12 chars):</label><br />
+    <input type="text" id="username" name="username" required pattern="^[a-zA-Z0-9]{4,12}$" />
+    <span id="usernameError" class="error"></span>
+    <br /><br />
+
+    <label for="email">Email:</label><br />
+    <input type="email" id="email" name="email" required />
+    <span id="emailError" class="error"></span>
+    <br /><br />
+
+    <label for="password">Password (min 8 chars, include uppercase, lowercase, number, special):</label><br />
+    <input type="password" id="password" name="password" required />
+    <span id="passwordError" class="error"></span>
+    <br /><br />
+
+    <button type="submit">Register</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('regForm');
+    const usernameInput = document.getElementById('username');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+
+    const usernameError = document.getElementById('usernameError');
+    const emailError = document.getElementById('emailError');
+    const passwordError = document.getElementById('passwordError');
+
+    // Regex for password validation
+    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    // Function to validate username asynchronously (simulate server check)
+    function validateUsernameServerSide(username) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          // Simulate that username 'admin' is taken
+          if (username.toLowerCase() === 'admin') {
+            resolve(false);
+          } else {
+            resolve(true);
+          }
+        }, 500); // simulate network delay
+      });
+    }
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      // Reset error messages
+      usernameError.textContent = '';
+      emailError.textContent = '';
+      passwordError.textContent = '';
+
+      let valid = true;
+
+      // Built-in HTML validation
+      if (!usernameInput.checkValidity()) {
+        usernameError.textContent = 'Username must be 4-12 letters/numbers.';
+        valid = false;
+      }
+      if (!emailInput.checkValidity()) {
+        emailError.textContent = 'Please enter a valid email address.';
+        valid = false;
+      }
+      // Custom password validation
+      if (!passwordPattern.test(passwordInput.value)) {
+        passwordError.textContent = 'Password must be min 8 chars with uppercase, lowercase, number and special.';
+        valid = false;
+      }
+
+      // Asynchronous server-side validation of username
+      if (valid) {
+        const isUsernameAvailable = await validateUsernameServerSide(usernameInput.value);
+        if (!isUsernameAvailable) {
+          usernameError.textContent = 'Username is already taken.';
+          valid = false;
+        }
+      }
+
+      // Final submission or rejection
+      if (valid) {
+        alert('Form submitted successfully!');
+        // Here you would normally submit the form or send data to backend
+        // Back-end validation required on the server for security and sanitization
+      }
+    });
+  </script>
+</body>
+</html>
